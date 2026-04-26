@@ -1,0 +1,54 @@
+scraper:
+  locations:
+    - "Berlin, Germany"
+    - "Remote"
+  search_terms:
+    - "Product Designer"
+    - "UX Designer"
+    - "UI Designer"
+    - "Interaction Designer"
+  sources:
+    - linkedin
+    - indeed
+    - stepstone
+
+filter:
+  include:
+    titles:
+      - Product Designer
+      - UX Designer
+      - UI Designer
+      - Interaction Designer
+      - UX/UI Designer
+    signals:
+      - mobile-first
+      - consumer app
+      - B2C
+      - shipping speed
+      - outcome thinking
+      - AI-native
+      - engagement
+      - retention
+      - startup
+      - fast-paced
+    experience_max_years: 4
+    locations:
+      - Berlin
+      - Remote
+      - Hybrid
+  exclude:
+    - pure frontend
+    - engineering only
+    - no design culture
+    - "5+ years"
+    - "5 years experience"
+    - German fluency required
+    - Deutschkenntnisse erforderlich
+    - Deutsch fließend
+
+notification:
+  recipient_email: "liamhasson@gmail.com"
+  sender_email: "liamhasson@gmail.com"
+
+schedule:
+  cron: "0 8 * * *"  # 8am daily
