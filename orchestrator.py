@@ -86,12 +86,16 @@ async def scrape_all(config: dict, sources: list[str]) -> list[Job]:
                 except Exception as e:
                     print(f"  [{source_name}] Error: {e}")
 
-    # Deduplicate by job ID within this run
+    # Deduplicate by URL within this run (same posting can appear under
+    # multiple search terms with slightly different titles → different IDs)
     seen_ids: set[str] = set()
+    seen_urls: set[str] = set()
     unique: list[Job] = []
     for job in all_jobs:
-        if job.id not in seen_ids:
+        norm_url = job.url.split("?")[0].rstrip("/")
+        if job.id not in seen_ids and norm_url not in seen_urls:
             seen_ids.add(job.id)
+            seen_urls.add(norm_url)
             unique.append(job)
 
     print(f"\nTotal unique jobs this run: {len(unique)}")
