@@ -9,7 +9,6 @@ scraper:
     - "Interaction Designer"
   sources:
     - linkedin
-    - indeed
     - stepstone
 
 filter:
